@@ -1,242 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ingenious Script Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-<style>
-:root{
-  --bg1:#050511;
-  --bg2:#0f1226;
-  --glass: rgba(255,255,255,0.03);
-  --accent:#7afcff;
-  --accent-2:#8a6bff;
-  --muted:#bfc6d8;
-}
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  color:#e6f6ff;
-  background: linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 60%);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
-  user-select:none;
-}
-.topbar{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:12px 16px;
-  position:relative;
-}
-#openSidebarBtn{
-  width:35px;
-  height:28px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  cursor:pointer;
-  background:none;
-  border:none;
-}
-#openSidebarBtn .bar{
-  width:100%;
-  height:4px;
-  background: var(--accent);
-  border-radius:2px;
-  transition:0.3s;
-}
-#openSidebarBtn.active .bar:nth-child(1){transform: rotate(45deg) translate(5px,5px);}
-#openSidebarBtn.active .bar:nth-child(2){opacity:0;}
-#openSidebarBtn.active .bar:nth-child(3){transform: rotate(-45deg) translate(5px,-5px);}
-.brand{font-weight:700;letter-spacing:0.6px;}
-.sidebar{
-  position:fixed;
-  left:-320px;
-  top:0;
-  height:100vh;
-  width:320px;
-  background:linear-gradient(180deg,rgba(10,12,25,0.96),rgba(12,14,35,0.95));
-  backdrop-filter:blur(8px);
-  padding:28px;
-  transition:all .35s cubic-bezier(.2,.9,.3,1);
-  box-shadow:24px 0 60px rgba(0,0,0,0.6);
-  z-index:100;
-}
-.sidebar.open{left:0;}
-.sidebar h3{margin:6px 0 18px;color:var(--accent);}
-.nav a{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  padding:12px;
-  border-radius:10px;
-  color:var(--muted);
-  text-decoration:none;
-  margin-bottom:8px;
-}
-.nav a:hover{background:rgba(122,252,255,0.06);color:#fff;}
-.wrap{padding:20px;margin-left:8px;}
-.card{
-  background:var(--glass);
-  border-radius:14px;
-  padding:18px;
-  margin-bottom:16px;
-  box-shadow:0 6px 30px rgba(5,6,15,0.6);
-  position:relative;
-}
-h1,h2,h3{margin:6px 0;color:var(--accent);}
-p{color:var(--muted);}
-.cols{display:grid;grid-template-columns:1fr 360px;gap:18px;}
-.btn{
-  display:inline-flex;
-  gap:10px;
-  align-items:center;
-  padding:10px 14px;
-  border-radius:10px;
-  border:none;
-  cursor:pointer;
-}
-.hero-img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-top:12px;
-}
-footer{
-  padding:20px;
-  text-align:center;
-  color:var(--muted);
-  font-size:13px;
-}
-#copyBtn{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  color:#021;
-  cursor:pointer;
-  font-size:16px;
-  margin-top:20px;
-  display:block;
-}
-.crypto{
-  background:rgba(122,252,255,0.05);
-  border-radius:10px;
-  padding:10px;
-  margin-bottom:6px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.crypto button{
-  padding:4px 10px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  color:#021;
-}
-@media(max-width:900px){.cols{grid-template-columns:1fr;}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ingenious Script Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg1:#050511;
+      --bg2:#0f1226;
+      --glass: rgba(255,255,255,0.03);
+      --accent:#7afcff;
+      --accent-2:#8a6bff;
+      --muted:#bfc6d8;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      color:#e6f6ff;
+      background: linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 60%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .topbar {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 16px;
+    }
+    #openSidebarBtn {
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border:none;
+      padding:10px;
+      border-radius:10px;
+      color:#021;
+      cursor:pointer;
+      box-shadow:0 6px 20px rgba(122,252,255,0.06);
+    }
+    .brand {
+      font-weight:700;
+      letter-spacing:0.6px;
+    }
+
+    .sidebar {
+      position:fixed;
+      left:-320px;
+      top:0;
+      height:100vh;
+      width:320px;
+      background:linear-gradient(180deg,rgba(10,12,25,0.96),rgba(12,14,35,0.95));
+      backdrop-filter:blur(8px);
+      padding:28px;
+      transition:all .35s cubic-bezier(.2,.9,.3,1);
+      box-shadow:24px 0 60px rgba(0,0,0,0.6);
+      z-index:100;
+    }
+    .sidebar.open { left:0; }
+    .sidebar h3 { margin:6px 0 18px; color:var(--accent); }
+    .nav a {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      border-radius:10px;
+      color:var(--muted);
+      text-decoration:none;
+      margin-bottom:8px;
+    }
+    .nav a:hover { background:rgba(122,252,255,0.06); color:#fff; }
+
+    .wrap { padding:20px; margin-left:8px; }
+    .card {
+      background:var(--glass);
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:16px;
+      box-shadow:0 6px 30px rgba(5,6,15,0.6);
+      position:relative;
+    }
+    h1, h2, h3 { margin:6px 0; color:var(--accent); }
+    p { color:var(--muted); }
+    .cols { display:grid; grid-template-columns:1fr 360px; gap:18px; }
+    .btn {
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      cursor:pointer;
+    }
+    .hero-img {
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:10px;
+      margin-top:12px;
+    }
+    footer {
+      padding:20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+    @media (max-width:900px){ .cols{ grid-template-columns:1fr; } }
+    #copyBtn:hover { opacity:0.9; }
+  </style>
 </head>
 <body>
-<div class="topbar">
-  <button id="openSidebarBtn">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-  <div class="brand">Project Ingenious <span style="color:var(--muted); font-weight:400;">Trusted & Safe</span></div>
-</div>
-
-<aside id="sidebar" class="sidebar">
-  <h3>Menu</h3>
-  <nav class="nav">
-    <a href="#" data-target="home"><i class="fas fa-home"></i> Home</a>
-    <a href="#" data-target="scripts"><i class="fas fa-code"></i> Scripts</a>
-    <a href="#" data-target="executors"><i class="fas fa-bolt"></i> Executors</a>
-    <a href="#" data-target="discord"><i class="fab fa-discord"></i> Discord</a>
-    <a href="#" data-target="support"><i class="fas fa-donate"></i> Support Us</a>
-  </nav>
-  <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
-  <div style="font-size:13px;color:var(--muted)">Owner: <strong>Ingenious</strong></div>
-</aside>
-
-<main class="wrap">
-<div class="cols">
-<section>
-  <div id="home" class="card">
-    <h1>Why Choose Us? ðŸ”’âš¡</h1>
-    <p>We are <strong>trusted</strong>, <strong>fully working</strong>, and <strong>super safe</strong>. Join the community where everything actually works and your time isn't wasted. Futuristic vibes only ðŸš€</p>
-    <img class="hero-img" src="https://picsum.photos/1600/500" alt="Cool placeholder image">
+  <div class="topbar">
+    <button id="openSidebarBtn"><i class="fas fa-bars"></i></button>
+    <div class="brand">Project Ingenious <span style="color:var(--muted); font-weight:400;">Trusted & Safe</span></div>
   </div>
 
-  <div id="scripts" class="card hidden">
-    <h1>Scripts ðŸ“œ</h1>
-    <p>Your main safe script is below (already tested & approved).</p>
-    <textarea id="scriptText" rows="6" readonly style="width:100%;background:rgba(255,255,255,0.04);color:#fff;border:none;border-radius:10px;padding:10px">
+  <aside id="sidebar" class="sidebar">
+    <h3>Menu</h3>
+    <nav class="nav">
+      <a href="#" data-target="home"><i class="fas fa-home"></i> Home</a>
+      <a href="#" data-target="scripts"><i class="fas fa-code"></i> Scripts</a>
+      <a href="#" data-target="executors"><i class="fas fa-bolt"></i> Executors</a>
+      <a href="#" data-target="discord"><i class="fab fa-discord"></i> Discord Server</a>
+      <a href="#" data-target="support"><i class="fas fa-donate"></i> Support Us</a>
+      <a href="https://www.tiktok.com/@theonlytemuun_?_t=ZS-8zOF43cL0oJ&_r=1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://youtube.com/@ingeniousscript?si=ChqfCJOYfqPnCWx7" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+    </nav>
+    <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
+    <div style="font-size:13px;color:var(--muted)">Owner: <strong>Ingenious</strong></div>
+  </aside>
+
+  <main class="wrap">
+    <div class="cols">
+      <section>
+        <div id="home" class="card">
+          <h1>Why Choose Us? ðŸ”’âš¡</h1>
+          <p>We are <strong>trusted</strong>, <strong>fully working</strong>, and <strong>super safe</strong>. Join the community where everything actually works and your time isn't wasted. Futuristic vibes only ðŸš€</p>
+          <img class="hero-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1600&auto=format&fit=crop" alt="Gen Z futuristic image">
+        </div>
+
+        <div id="scripts" class="card hidden">
+          <h1>Scripts ðŸ“œ</h1>
+          <p>Your main safe script is below (already tested & approved).</p>
+          <div style="position:relative;">
+            <textarea id="scriptText" rows="6" readonly 
+              style="width:100%;background:rgba(255,255,255,0.04);color:#fff;border:none;border-radius:10px;padding:10px">
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IngeniousMain/Grow-A-Garden/refs/heads/main/Universal"))()
-    </textarea>
-    <button id="copyBtn">Copy Script</button>
-  </div>
-</section>
+            </textarea>
+            <button id="copyBtn" 
+              style="position:absolute;top:10px;right:10px;padding:6px 12px;border:none;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021;cursor:pointer;">
+              Copy
+            </button>
+          </div>
+        </div>
+      </section>
 
-<aside>
-  <div id="executors" class="card hidden">
-    <h2>Executors âš¡</h2>
-    <ul style="list-style:none;padding:0;margin:0">
-      <li><img src="https://i.imgur.com/2s2D3jv.png" width="20"> <a href="#">Delta</a></li>
-      <li><img src="https://i.imgur.com/zfX9WbF.png" width="20"> <a href="#">Krnl</a></li>
-      <li><img src="https://i.imgur.com/xZtgyVq.png" width="20"> <a href="#">Codex</a></li>
-    </ul>
-  </div>
+      <aside>
+        <div id="executors" class="card hidden">
+          <h2>Executors âš¡</h2>
+          <ul style="list-style:none;padding:0;margin:0">
+            <li><img src="https://i.imgur.com/2s2D3jv.png" width="20"> <a href="https://discord.gg/deltax" target="_blank">Delta</a></li>
+            <li><img src="https://i.imgur.com/zfX9WbF.png" width="20"> <a href="https://discord.gg/getkrnl" target="_blank">Krnl</a></li>
+            <li><img src="https://i.imgur.com/xZtgyVq.png" width="20"> <a href="https://discord.gg/codexlol" target="_blank">Codex</a></li>
+          </ul>
+        </div>
 
-  <div id="support" class="card hidden">
-    <h2>Support Us ðŸ’Ž</h2>
-    <div class="crypto">LTC <span>ltc1qrfnza5jtkycprnzysxe0v0jkf2yjv7qaw4clhu <button onclick="copyText('ltc1qrfnza5jtkycprnzysxe0v0jkf2yjv7qaw4clhu')">Copy</button></span></div>
-    <div class="crypto">BTC <span>bc1qu5h6hmfyaq3er7vc74sxqgglft97ghzvjazhx9 <button onclick="copyText('bc1qu5h6hmfyaq3er7vc74sxqgglft97ghzvjazhx9')">Copy</button></span></div>
-    <div class="crypto">ETH <span>0xDc0501024Ef379Ab99ec3c51D77135F942b6e5Ac <button onclick="copyText('0xDc0501024Ef379Ab99ec3c51D77135F942b6e5Ac')">Copy</button></span></div>
-  </div>
-</aside>
-</div>
+        <div id="discord" class="card hidden">
+          <h2>Discord Servers ðŸ’¬</h2>
+          <p>Hang out, get updates, and join exclusive events. Pick your server:</p>
+          <div style="margin-bottom:16px">
+            <h3 style="margin:0;color:var(--accent)">Project Revers</h3>
+            <p style="color:var(--muted);font-size:13px;">Grow A Garded, Murder Mystery Stealer Or Beamer and community chat.</p>
+            <a href="https://discord.gg/PZNK3DCrVQ" target="_blank" class="btn" style="background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021;margin-top:6px">
+              <i class="fab fa-discord"></i> Join Project Revers
+            </a>
+          </div>
 
-<footer>Made with âš¡ by Ingenious -- 100% Trusted, Safe, and Working</footer>
-</main>
+          <div>
+            <h3 style="margin:0;color:var(--accent-2)">AutoGems PS99 Giveaway</h3>
+            <p style="color:var(--muted);font-size:13px;">Special events, giveaways and gambling for Pet Sim 99 players.</p>
+            <a href="https://discord.gg/X6K9XKkKyw" target="_blank" class="btn" style="background:linear-gradient(90deg,var(--accent-2),var(--accent));color:#021;margin-top:6px">
+              <i class="fab fa-discord"></i> Join AutoGems
+            </a>
+          </div>
+        </div>
 
-<script>
-const sidebar=document.getElementById('sidebar');
-const sidebarBtn=document.getElementById('openSidebarBtn');
-sidebarBtn.addEventListener('click',()=>{
-  sidebar.classList.toggle('open');
-  sidebarBtn.classList.toggle('active');
-});
+        <div id="support" class="card hidden">
+          <h2>Support Us ðŸ’Ž</h2>
+          <p style="color:var(--muted);font-size:13px;">Optional donations (crypto). Totally up to you!</p>
+          <div class="crypto">LTC<br>ltc1qrfnza5jtkycprnzysxe0v0jkf2yjv7qaw4clhu</div>
+          <div class="crypto">BTC<br>bc1qu5h6hmfyaq3er7vc74sxqgglft97ghzvjazhx9</div>
+          <div class="crypto">ETH<br>0xDc0501024Ef379Ab99ec3c51D77135F942b6e5Ac</div>
+        </div>
+      </aside>
+    </div>
 
-document.querySelectorAll('.nav a').forEach(a=>{
-  a.addEventListener('click',e=>{
-    if(a.dataset.target){e.preventDefault();showSection(a.dataset.target);}
-  });
-});
+    <footer>
+      Made with âš¡ by Ingenious -- 100% Trusted, Safe, and Working
+    </footer>
+  </main>
 
-function hideAll(){document.querySelectorAll('main .card').forEach(el=>el.classList.add('hidden'));}
-function showSection(id){hideAll();const el=document.getElementById(id);if(el)el.classList.remove('hidden');sidebar.classList.remove('open');}
-showSection('home');
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    document.getElementById('openSidebarBtn').addEventListener('click',()=>{ sidebar.classList.toggle('open'); });
 
-const copyBtn=document.getElementById('copyBtn');
-const scriptText=document.getElementById('scriptText');
-copyBtn.addEventListener('click',()=>{
-  scriptText.select();
-  scriptText.setSelectionRange(0,99999);
-  navigator.clipboard.writeText(scriptText.value).then(()=>{copyBtn.textContent='Copied!';setTimeout(()=>{copyBtn.textContent='Copy Script';},1500);});
-});
+    document.querySelectorAll('.nav a').forEach(a=>{
+      a.addEventListener('click',(e)=>{
+        if(a.dataset.target){ e.preventDefault(); showSection(a.dataset.target); }
+      });
+    });
 
-function copyText(text){navigator.clipboard.writeText(text);}
-</script>
+    function hideAll(){ document.querySelectorAll('main .card').forEach(el=>el.classList.add('hidden')); }
+    function showSection(id){ hideAll(); const el=document.getElementById(id); if(el) el.classList.remove('hidden'); sidebar.classList.remove('open'); }
+
+    showSection('home');
+
+    const copyBtn = document.getElementById('copyBtn');
+    const scriptText = document.getElementById('scriptText');
+    copyBtn.addEventListener('click', () => {
+      scriptText.select();
+      scriptText.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(scriptText.value).then(() => {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1500);
+      });
+    });
+  </script>
 </body>
 </html>
